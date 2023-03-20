@@ -1,3 +1,7 @@
+
+# Python
+
+```python
 from trycourier import Courier
 client = Courier(auth_token="<auth-token>")
 
@@ -30,3 +34,4 @@ resp = client.send_message(
   }
 )
 print(resp['requestId'])
+```
