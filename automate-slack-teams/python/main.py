@@ -5,18 +5,28 @@ resp = client.send_message(
   message={
     "to": {
       "slack": {
-        "access_token": "xoxb-abcd",
+        "access_token": "access_token",
         "email": "example@gmail.com",
       },
       "ms_teams": {
-          "conversation_id": "85S5NWXJVQ4GN8J21JSKV3JVCSV2",
-          "tenant_id": "aac0c564-6c5e-4b05-8dc3-408087f77f76",
+          "conversation_id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "tenant_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
           "service_url": "https://smba.trafficmanager.net/amer",
       },
       "email": "example@gmail.com",
       "phone_number": "123-456-7890"
     },
-    "template": "Z5N9D2J8DSMBKEHWF27AEEF6J822"
+    # "template": "template_id",
+    # note: routing object below is not needed if template is used instead of content object
+      "content": {
+        "title": "Important Survey Reminder",
+        "body": "This is a reminder to fill out your survey by the end of this week.",
+    },
+    "routing": {
+        # method: "single",
+        "method": "all",
+        "channels": ["direct_message", "email"]
+      }
   }
 )
 print(resp['requestId'])
